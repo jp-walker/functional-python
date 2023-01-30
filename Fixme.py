@@ -18,9 +18,19 @@ def evens(n):
     >>> evens(1)
     [0]
     >>> evens(-1)
-    []
+    [0]
     '''
-
+    
+    result = []
+    if n >= 0:
+        numbers = list(range(n+1))
+    else:
+        numbers = list(range(n,1))
+    for i in numbers:
+        if i % 2 == 0:
+            result.append(i)
+    return result
+            
 
 def threes(n):
     '''
@@ -37,7 +47,12 @@ def threes(n):
     >>> threes(50)
     [3, 13, 23, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 43]
     '''
-
+    result = []
+    for i in list(range(0,n+1)):
+        i = str(i)
+        if '3' in i:
+            result.append(int(i))
+    return result
 
 def small_words(text):
     '''
@@ -54,8 +69,13 @@ def small_words(text):
     []
     >>> small_words('a big word is bad')
     ['a', 'big', 'word', 'is', 'bad']
-    '''
-
+    ''' 
+    result = []
+    text = text.split(" ")
+    for i in text:
+        if len(i) < 5 and i != "":
+            result.append(i)
+    return result
 
 def squares(n):
     '''
@@ -72,6 +92,11 @@ def squares(n):
     [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     '''
 
+    result = []
+
+    for i in list(range(1,n+1)):
+        result.append(i**2)
+    return result 
 
 def lengths(strings):
     '''
@@ -84,3 +109,9 @@ def lengths(strings):
     >>> lengths(['this','is','a','test'])
     [4, 2, 1, 4]
     '''
+
+    result = []
+
+    for e in strings:
+        result.append(len(e))
+    return result
